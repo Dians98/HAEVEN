@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HAEVEN Services</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&amp;family=DM+Sans:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+.navlink{min-height:44px;display:flex;align-items:center;border-bottom:2px solid transparent}
+.navlink:hover{color:#3A5665;border-bottom-color:#7CA2B5}
+.navlink[aria-current="page"]{color:#1D1F1E;border-bottom-color:#7CA2B5}
+.lang{min-height:44px;min-width:44px;background:none;border:0;border-bottom:2px solid transparent;font-family:inherit;font-size:14px;letter-spacing:0.1em;color:#5A5D5B;cursor:pointer;padding:0 6px}
+.lang:hover{color:#1D1F1E}
+.lang[aria-pressed="true"]{color:#1D1F1E;border-bottom-color:#7CA2B5;font-weight:500}
+.btn{background:#7CA2B5;color:#1D1F1E}
+.btn:hover{background:#6B94A8}
+.btn-dark{background:#3A5665;color:#F5F3EF}
+.btn-dark:hover{background:#2C4350}
+.txtlink{border-bottom:1px solid #9DB6C2}
+.txtlink:hover{border-bottom-color:#3A5665}
+.logo{display:block;flex:none;background-color:currentColor;-webkit-mask:url(./assets/430a3b941f6ddb4546d2be35dced51a9.png) center/contain no-repeat;mask:url(./assets/430a3b941f6ddb4546d2be35dced51a9.png) center/contain no-repeat}
+</style>
+</helmet>
+<div lang="{{ langCode }}" style="width: 100%; box-sizing: border-box; background: #F5F3EF; color: #1D1F1E; font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.6; display: flex; flex-direction: column">
+
+  <header style="padding: 0 clamp(20px, 5vw, 80px)">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 20px 0">
+      <a href="Main.dc.html" aria-label="HAEVEN" style="min-height: 44px; display: flex; align-items: center; gap: 16px">
+        <span class="logo" aria-hidden="true" style="width: 37px; height: 44px; color: #7CA2B5"></span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px; letter-spacing: 0.24em">HAEVEN</span>
+      </a>
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px">
+        <nav aria-label="Main" style="display: flex; flex-wrap: wrap; align-items: center; gap: 0 28px; font-size: 15px; color: #5A5D5B">
+          <a class="navlink" href="Services.dc.html" aria-current="page">{{ t.navServices }}</a>
+          <a class="navlink" href="#">{{ t.navShop }}</a>
+          <a class="navlink" href="#work">{{ t.navPortfolio }}</a>
+          <a class="navlink" href="#">{{ t.navUniverse }}</a>
+          <a class="navlink" href="#">{{ t.navAbout }}</a>
+          <a class="navlink" href="#contact">{{ t.navContact }}</a>
+        </nav>
+        <a class="btn" href="#contact" style="min-height: 44px; padding: 0 20px; display: inline-flex; align-items: center; font-size: 14px; letter-spacing: 0.04em">{{ t.start }}</a>
+        <div role="group" aria-label="{{ t.langLabel }}" style="display: flex; align-items: center; gap: 2px">
+          <button class="lang" type="button" aria-pressed="{{ enPressed }}" onClick="{{ setEn }}">EN</button>
+          <button class="lang" type="button" aria-pressed="{{ frPressed }}" onClick="{{ setFr }}">FR</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="display: flex; flex-direction: column">
+
+    <section style="padding: clamp(64px, 9vw, 120px) clamp(20px, 5vw, 80px) clamp(40px, 6vw, 80px)">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+        <div style="max-width: 920px; display: flex; flex-direction: column; gap: 28px">
+          <p style="margin: 0; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #3A5665">{{ t.heroEyebrow }}</p>
+          <h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(46px, 7vw, 104px); line-height: 1.02; letter-spacing: -0.015em">{{ t.heroLeadA }} <em style="font-style: italic; color: #3A5665">{{ t.heroLeadEm }}</em></h1>
+          <p style="margin: 0; max-width: 560px; font-size: 20px; color: #3A3D3B">{{ t.heroText }}</p>
+          <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; margin-top: 8px">
+            <a class="btn" href="#contact" style="min-height: 48px; padding: 0 32px; display: inline-flex; align-items: center; font-size: 15px; letter-spacing: 0.04em">{{ t.start }}</a>
+            <a class="txtlink" href="#process" style="min-height: 44px; display: inline-flex; align-items: center; font-size: 15px">{{ t.howLink }}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="offer" style="padding: clamp(24px, 4vw, 56px) clamp(20px, 5vw, 80px) clamp(56px, 8vw, 112px)">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; gap: 48px 32px">
+
+        <article style="width: 100%; display: flex; flex-wrap: wrap; align-items: center; gap: 32px clamp(32px, 5vw, 72px)">
+          <img src="./assets/5a3c577cfde49395183a46fdddcfe7ce.jpg" alt="{{ t.renderAlt }}" style="display: block; flex: 1 1 480px; min-width: 0; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 55%">
+          <div style="flex: 1 1 360px; display: flex; flex-direction: column; gap: 14px">
+            <span style="align-self: flex-start; border: 1px solid #9DB6C2; padding: 2px 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A5665">{{ t.s1Tag }}</span>
+            <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(36px, 4vw, 52px); line-height: 1.1">{{ t.s1Title }}</h2>
+            <p style="margin: 0; color: #3A3D3B">{{ t.s1Text }}</p>
+            <ul style="list-style: none; margin: 8px 0 0; padding: 0; color: #3A3D3B">
+              <li style="border-top: 1px solid #DDD9D1; padding: 12px 0">{{ t.s1a }}</li>
+              <li style="border-top: 1px solid #DDD9D1; padding: 12px 0">{{ t.s1b }}</li>
+              <li style="border-top: 1px solid #DDD9D1; padding: 12px 0">{{ t.s1c }}</li>
+              <li style="border-top: 1px solid #DDD9D1; border-bottom: 1px solid #DDD9D1; padding: 12px 0">{{ t.s1d }}</li>
+            </ul>
+            <a class="txtlink" href="#contact" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-size: 15px; margin-top: 4px">{{ t.quote }}</a>
+          </div>
+        </article>
+
+
+      </div>
+    </section>
+
+    <section id="process" style="padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 80px); border-top: 1px solid #DDD9D1">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+        <div style="display: flex; flex-direction: column; gap: 12px">
+          <p style="margin: 0; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #3A5665">{{ t.procEyebrow }}</p>
+          <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1">{{ t.procTitle }}</h2>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px">
+          <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #7CA2B5; padding-top: 20px">
+            <span style="font-size: 13px; letter-spacing: 0.22em; color: #5A5D5B">01</span>
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.p1Title }}</h3>
+            <p style="margin: 0; color: #3A3D3B">{{ t.p1Text }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #7CA2B5; padding-top: 20px">
+            <span style="font-size: 13px; letter-spacing: 0.22em; color: #5A5D5B">02</span>
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.p2Title }}</h3>
+            <p style="margin: 0; color: #3A3D3B">{{ t.p2Text }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #7CA2B5; padding-top: 20px">
+            <span style="font-size: 13px; letter-spacing: 0.22em; color: #5A5D5B">03</span>
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.p3Title }}</h3>
+            <p style="margin: 0; color: #3A3D3B">{{ t.p3Text }}</p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 10px; border-top: 2px solid #7CA2B5; padding-top: 20px">
+            <span style="font-size: 13px; letter-spacing: 0.22em; color: #5A5D5B">04</span>
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.p4Title }}</h3>
+            <p style="margin: 0; color: #3A3D3B">{{ t.p4Text }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 80px); border-top: 1px solid #DDD9D1">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+        <div style="display: flex; flex-direction: column; gap: 12px; max-width: 640px">
+          <p style="margin: 0; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #3A5665">{{ t.moreEyebrow }}</p>
+          <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1">{{ t.moreTitle }}</h2>
+          <p style="margin: 0; color: #3A3D3B">{{ t.moreText }}</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px">
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-top: 1px solid #DDD9D1; padding-top: 20px">
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.d1 }}</h3>
+            <span style="border: 1px solid #9DB6C2; padding: 2px 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A5665">{{ t.soon }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-top: 1px solid #DDD9D1; padding-top: 20px">
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.d2 }}</h3>
+            <span style="border: 1px solid #9DB6C2; padding: 2px 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A5665">{{ t.soon }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-top: 1px solid #DDD9D1; padding-top: 20px">
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.d3 }}</h3>
+            <span style="border: 1px solid #9DB6C2; padding: 2px 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A5665">{{ t.soon }}</span>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 14px; border-top: 1px solid #DDD9D1; padding-top: 20px">
+            <h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 30px">{{ t.d4 }}</h3>
+            <span style="border: 1px solid #9DB6C2; padding: 2px 10px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #3A5665">{{ t.soon }}</span>
+          </div>
+        </div>
+        <a class="txtlink" href="#contact" style="align-self: flex-start; min-height: 44px; display: inline-flex; align-items: center; font-size: 15px">{{ t.moreLink }}</a>
+      </div>
+    </section>
+
+    <section id="work" style="padding: clamp(48px, 7vw, 96px) clamp(20px, 5vw, 80px); border-top: 1px solid #DDD9D1">
+      <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
+        <div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px">
+          <div style="display: flex; flex-direction: column; gap: 12px">
+            <p style="margin: 0; font-size: 13px; letter-spacing: 0.22em; text-transform: uppercase; color: #3A5665">{{ t.workEyebrow }}</p>
+            <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 56px); line-height: 1.1">{{ t.workTitle }}</h2>
+          </div>
+          <a class="txtlink" href="#" style="min-height: 44px; display: inline-flex; align-items: center; font-size: 15px">{{ t.workAll }}</a>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px">
+          <a href="#" style="display: flex; flex-direction: column; gap: 14px">
+            <img src="./assets/5a3c577cfde49395183a46fdddcfe7ce.jpg" alt="{{ t.renderAlt }}" style="display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 55%">
+            <div style="display: flex; flex-direction: column">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500">{{ t.projName }}</span>
+              <span style="font-size: 14px; color: #5A5D5B">{{ t.metaRender }}</span>
+            </div>
+          </a>
+          <a href="#" style="display: flex; flex-direction: column; gap: 14px">
+            <div role="img" aria-label="{{ t.ph }}" style="aspect-ratio: 4 / 3; background: #C9DAE3"></div>
+            <div style="display: flex; flex-direction: column">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500">{{ t.projName }}</span>
+              <span style="font-size: 14px; color: #5A5D5B">{{ t.metaEdesign }}</span>
+            </div>
+          </a>
+          <a href="#" style="display: flex; flex-direction: column; gap: 14px">
+            <div role="img" aria-label="{{ t.ph }}" style="aspect-ratio: 4 / 3; background: #DCE7ED"></div>
+            <div style="display: flex; flex-direction: column">
+              <span style="font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500">{{ t.projName }}</span>
+              <span style="font-size: 14px; color: #5A5D5B">{{ t.metaInterior }}</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" style="padding: clamp(56px, 8vw, 120px) clamp(20px, 5vw, 80px); background: #7CA2B5">
+      <div style="max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px">
+        <span class="logo" aria-hidden="true" style="width: 54px; height: 64px; color: #F5F3EF"></span>
+        <h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: clamp(38px, 5vw, 68px); line-height: 1.05; color: #1D1F1E">{{ t.ctaTitle }}</h2>
+        <p style="margin: 0; color: #1D1F1E">{{ t.ctaText }}</p>
+        <a class="btn-dark" href="#" style="min-height: 48px; padding: 0 32px; display: inline-flex; align-items: center; font-size: 15px; letter-spacing: 0.04em; margin-top: 8px">{{ t.start }}</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer style="padding: 0 clamp(20px, 5vw, 80px)">
+    <div style="max-width: 1280px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 32px; padding: 32px 0">
+      <div style="display: flex; align-items: center; gap: 14px">
+        <span class="logo" aria-hidden="true" style="width: 30px; height: 36px; color: #7CA2B5"></span>
+        <span style="font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 22px; letter-spacing: 0.24em">HAEVEN</span>
+      </div>
+      <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 0 24px; font-size: 14px; color: #5A5D5B">
+        <a class="navlink" href="Services.dc.html">{{ t.navServices }}</a>
+        <a class="navlink" href="#">{{ t.navShop }}</a>
+        <a class="navlink" href="#">{{ t.navUniverse }}</a>
+        <a class="navlink" href="#contact">{{ t.navContact }}</a>
+      </nav>
+      <span style="font-size: 14px; color: #5A5D5B">© 2026 HAEVEN</span>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":3100}}'>
+class Component extends DCLogic {
+renderVals() {
+const lang = (this.state && this.state.lang) || "en";
+const D = {
+en: {
+langLabel: "Language",
+ph: "Placeholder image",
+renderAlt: "3D visualisation of a covered terrace with teak sofas, a palm tree and a pool",
+navServices: "Services",
+navShop: "Shop",
+navPortfolio: "Portfolio",
+navUniverse: "Universe",
+navAbout: "About",
+navContact: "Contact",
+heroEyebrow: "Services",
+heroLeadA: "Interior design,",
+heroLeadEm: "in person or online.",
+heroText: "Everything can be done remotely, from the first idea to the final detail.",
+start: "Start a project",
+howLink: "See how it works",
+s1Tag: "Available worldwide",
+s1Title: "Interior design",
+s1Text: "Whatever the space, we design it with you, in person or entirely online, from the first concept to the final touches.",
+s1a: "Concept and space planning",
+s1b: "3D visualisation",
+s1c: "Materials and furniture",
+s1d: "Styling and finishing touches",
+s2Tag: "Online",
+s2Title: "E-design",
+s2Text: "Your design, delivered online, wherever you are.",
+s2a: "Concept boards",
+s2b: "3D visualisation",
+s2c: "Shopping list",
+s2Img: "[E-DESIGN VISUAL]",
+quote: "Ask for a quote",
+procEyebrow: "Our process",
+procTitle: "How it works",
+p1Title: "Talk",
+p1Text: "We listen to your space, your needs and your taste, in person or by video call.",
+p2Title: "Design",
+p2Text: "We create the concept, the layouts and the materials.",
+p3Title: "Visualise",
+p3Text: "You see your space in 3D before anything is built or bought.",
+p4Title: "Deliver",
+p4Text: "We guide the final details, from sourcing to styling.",
+moreEyebrow: "And more",
+moreTitle: "Growing with every project.",
+moreText: "Our practice keeps expanding. These services are on their way.",
+d1: "Graphic design",
+d2: "UI/UX design",
+d3: "Fashion design",
+d4: "Event design",
+soon: "Coming soon",
+moreLink: "Tell us what you need",
+workEyebrow: "Selected work",
+workTitle: "Recent projects",
+workAll: "View the full portfolio",
+projName: "[PROJECT NAME]",
+metaRender: "Interior design · 3D visualisation",
+metaEdesign: "Interior design · [LOCATION]",
+metaInterior: "Interior design · [LOCATION]",
+ctaTitle: "Let's design your space.",
+ctaText: "Tell us about your project and we will get back to you."
+},
+fr: {
+langLabel: "Langue",
+ph: "Image provisoire",
+renderAlt: "Visualisation 3D d'une terrasse couverte avec canapés en teck, un palmier et une piscine",
+navServices: "Services",
+navShop: "Boutique",
+navPortfolio: "Portfolio",
+navUniverse: "Univers",
+navAbout: "À propos",
+navContact: "Contact",
+heroEyebrow: "Services",
+heroLeadA: "Du design d'intérieur,",
+heroLeadEm: "en personne ou en ligne.",
+heroText: "Tout peut se faire à distance, de la première idée au dernier détail.",
+start: "Démarrer un projet",
+howLink: "Voir comment ça marche",
+s1Tag: "Disponible dans le monde entier",
+s1Title: "Design d'intérieur",
+s1Text: "Quel que soit l'espace, nous le concevons avec vous, en personne ou entièrement en ligne, du premier concept aux dernières touches.",
+s1a: "Concept et aménagement de l'espace",
+s1b: "Visualisation 3D",
+s1c: "Matériaux et mobilier",
+s1d: "Stylisme et finitions",
+s2Tag: "En ligne",
+s2Title: "E-design",
+s2Text: "Votre design, livré en ligne, où que vous soyez.",
+s2a: "Planches d'ambiance",
+s2b: "Visualisation 3D",
+s2c: "Liste d'achats",
+s2Img: "[VISUEL E-DESIGN]",
+quote: "Demander un devis",
+procEyebrow: "Notre méthode",
+procTitle: "Comment ça marche",
+p1Title: "Échanger",
+p1Text: "Nous écoutons votre espace, vos besoins et vos goûts, en personne ou en visioconférence.",
+p2Title: "Concevoir",
+p2Text: "Nous créons le concept, les plans et les matériaux.",
+p3Title: "Visualiser",
+p3Text: "Vous voyez votre espace en 3D avant que rien ne soit construit ou acheté.",
+p4Title: "Réaliser",
+p4Text: "Nous vous guidons dans les derniers détails, de la sélection au stylisme.",
+moreEyebrow: "Et bien plus",
+moreTitle: "Nous grandissons à chaque projet.",
+moreText: "Notre activité continue de s'étendre. Ces services arrivent bientôt.",
+d1: "Design graphique",
+d2: "Design UI/UX",
+d3: "Design de mode",
+d4: "Design événementiel",
+soon: "Bientôt",
+moreLink: "Dites-nous ce qu'il vous faut",
+workEyebrow: "Réalisations",
+workTitle: "Projets récents",
+workAll: "Voir tout le portfolio",
+projName: "[NOM DU PROJET]",
+metaRender: "Design d'intérieur · visualisation 3D",
+metaEdesign: "Design d'intérieur · [LIEU]",
+metaInterior: "Design d'intérieur · [LIEU]",
+ctaTitle: "Concevons votre espace.",
+ctaText: "Parlez-nous de votre projet et nous reviendrons vers vous."
+}
+};
+return {
+t: D[lang],
+langCode: lang,
+enPressed: lang === "en" ? "true" : "false",
+frPressed: lang === "fr" ? "true" : "false",
+setEn: () => this.setState({ lang: "en" }),
+setFr: () => this.setState({ lang: "fr" })
+};
+}
+}
+</script>
+</body>
+</html>

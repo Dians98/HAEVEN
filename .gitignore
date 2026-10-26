@@ -1,0 +1,29 @@
+# Dépendances et build
+node_modules/
+.next/
+out/
+build/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environnement
+.env
+.env*.local
+
+# Outils
+.vercel/
+.DS_Store
+Thumbs.db
+*.log
+
+# Claude Code : réglages propres à ce poste
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+
+# impeccable : binaire retéléchargé automatiquement, réglages et captures locales
+.claude/skills/impeccable/scripts/bin/
+.impeccable/config.local.json
+.impeccable/live/
+
+# Rapports de sécurité : peuvent décrire des failles non corrigées
+securite/rapports/

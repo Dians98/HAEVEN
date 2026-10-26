@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **HAEVEN** : site d'un studio créatif (design d'intérieur d'abord ; graphisme, UI/UX, mode et événementiel à venir). Un seul site, **bilingue anglais / français**, organisé en trois univers : **Services**, **Boutique (Shop)**, **Univers** (photo, chansons, écriture). Interlocuteur : Diano. Réponses et commentaires de code en français.
 
-**État actuel** : le projet Next.js n'est pas encore créé. Le dossier ne contient que les références de design ci-dessous et la configuration Claude (`.claude/`). Ce n'est pas un dépôt git.
+**État actuel** : le projet Next.js n'est pas encore créé. Le dossier ne contient que les références de design ci-dessous et la configuration Claude (`.claude/`). Dépôt git : https://github.com/Dians98/HAEVEN (branche `main`). Les fins de ligne sont en LF (`.gitattributes`). Le binaire d'impeccable (`scripts/bin/`) est ignoré par git : il se retélécharge tout seul.
 
 ## Sources de vérité
 

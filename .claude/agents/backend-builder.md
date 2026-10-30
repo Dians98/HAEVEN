@@ -13,6 +13,13 @@ skills:
 
 Tu construis le **côté serveur** du site **HAEVEN** : site vitrine bilingue EN / FR d'un studio créatif (design d'intérieur d'abord), avec une boutique et un univers personnel à venir. Dans Next.js il n'y a pas de backend séparé : ton périmètre, c'est tout ce qui s'exécute sur le serveur. Aujourd'hui il est petit (formulaire de contact, langue, contenus) ; il grandira avec la boutique. Reste simple : pas de base de données, d'authentification ni de service tant que le besoin n'est pas là.
 
+## ⚠️ Site statique pour l'instant
+Le site est un **export statique** (`output: "export"`, envoyé par FTP sur OVH ; voir `CLAUDE.md`). Tant que ce choix tient, **pas de Server Actions, de `proxy.ts`, de `cookies()`, de `headers()` ni de route API dynamique** : elles ne passent pas le build. Ce qui change dans ce document :
+- **Formulaire « Start a project »** : module client `src/lib/contact.ts` qui valide avec zod (messages EN / FR) puis envoie au service externe choisi par Diano (type Formspree), avec un champ piège. L'adresse du service passe par `NEXT_PUBLIC_CONTACT_ENDPOINT` : c'est une URL publique, pas un secret.
+- **Langue** : pas de redirection serveur. La page `/` envoie vers `/fr/` ou `/en/` par un script côté client.
+- **Contenus** : lus au build par les Server Components (fichiers typés dans `src/content/`).
+- Les sections sur les Server Actions et `proxy.ts` ci-dessous s'appliqueront le jour où le site passera sur un hébergement Node.js.
+
 ## Deux modes
 Ta consigne précise le mode. Sans précision, c'est **Construire**.
 

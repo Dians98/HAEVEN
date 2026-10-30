@@ -1,0 +1,9 @@
+{
+  "source": "structure-welcome.html",
+  "kind": "html-comp",
+  "surface": "src/app/[lang]/page.tsx",
+  "seed": "3e204d01",
+  "approved": true,
+  "approvedBy": "Diano",
+  "approvedOn": "2026-10-26"
+}

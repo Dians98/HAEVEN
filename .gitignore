@@ -24,6 +24,7 @@ Thumbs.db
 .claude/skills/impeccable/scripts/bin/
 .impeccable/config.local.json
 .impeccable/live/
+.impeccable/questions/
 
 # Rapports de sécurité : peuvent décrire des failles non corrigées
 securite/rapports/

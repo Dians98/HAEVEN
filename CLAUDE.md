@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **HAEVEN** : site d'un studio créatif (design d'intérieur d'abord ; graphisme, UI/UX, mode et événementiel à venir). Un seul site, **bilingue anglais / français**, organisé en trois univers : **Services**, **Boutique (Shop)**, **Univers** (photo, chansons, écriture). Interlocuteur : Diano. Réponses et commentaires de code en français.
 
-**État actuel** : le projet Next.js n'est pas encore créé. Le dossier ne contient que les références de design ci-dessous et la configuration Claude (`.claude/`). Dépôt git : https://github.com/Dians98/HAEVEN (branche `main`). Les fins de ligne sont en LF (`.gitattributes`). Le binaire d'impeccable (`scripts/bin/`) est ignoré par git : il se retélécharge tout seul.
+**État actuel** : projet Next.js créé (Next 16.4, React 19.3, Tailwind 4, shadcn/ui style `radix-nova`, Motion 14). La page d'accueil est en cours ; elle suit la composition validée « Bienvenue d'abord » (`.impeccable/surfaces/src-app-lang-page-tsx.md`, maquette `.impeccable/mocks/decision/structure-welcome.html`). Dépôt git : https://github.com/Dians98/HAEVEN (branche `main`). Les fins de ligne sont en LF (`.gitattributes`). Le binaire d'impeccable (`scripts/bin/`) est ignoré par git : il se retélécharge tout seul.
 
 ## Sources de vérité
 
@@ -25,17 +25,32 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `Services.dc.html` contient encore des clés `s2*` pour une offre « E-design » qui n'est plus affichée. Le client a décidé de ne pas montrer « e-design » dans le texte visible (le terme est permis dans les métadonnées SEO).
 - `heroTitle` (Home) n'est pas utilisé.
 
-## Stack prévue
+## Stack et commandes
 
-Next.js (App Router, Server Actions), Tailwind CSS 4, shadcn/ui, **Motion** (`motion/react`) pour les animations, **pnpm**. Une fois le projet créé, les commandes seront celles de `package.json` (`pnpm dev`, `pnpm build`, `pnpm lint`) ; `pnpm dlx shadcn@latest add <composant>` pour ajouter un composant. Il n'y a pas encore de tests.
+Next.js 16.4 (App Router), Tailwind CSS 4, shadcn/ui (Radix), **Motion** (`motion/react`), **pnpm**. Next 16.4 diffère de ce que tu connais : lire `node_modules/next/dist/docs/` avant d'utiliser une API (voir `AGENTS.md`).
+
+- `pnpm dev` : serveur de développement (aller sur `/en/` ou `/fr/`).
+- `pnpm build` : génère le site statique dans `out/`.
+- `pnpm lint` ; vérification des types : `pnpm exec tsc --noEmit`.
+- `pnpm dlx shadcn@latest add <composant>` pour ajouter un composant.
+- Pas encore de tests.
+
+**Site statique** (`output: "export"`, `trailingSlash: true`, `images.unoptimized`). Diano ne sait pas si son offre OVH (cPanel, FTP) fait tourner Node.js, donc on vise un hébergement de fichiers seuls : on envoie le contenu de `out/` par FTP. Conséquences :
+- **interdits** : Server Actions, `proxy.ts`, `cookies()`, `headers()`, redirections et en-têtes dans `next.config`, routes dynamiques sans `generateStaticParams`, optimisation d'images à la demande, `cacheComponents` ;
+- le formulaire « Start a project » enverra ses données à un **service externe** (type Formspree, à choisir) depuis le navigateur ;
+- les en-têtes HTTP et la page 404 se règlent dans `public/.htaccess` (Apache OVH) ;
+- passer plus tard à un hébergement Node.js se fera sans refaire les pages.
+
+`PRODUCT.md` contient la fiche produit (utilisateurs, positionnement, contenus disponibles) : à lire avant tout travail de design.
 
 ## Architecture visée
 
-- **Bilingue par l'URL** : routes `src/app/[lang]/…` (`en`, `fr`). `proxy.ts` (ou `middleware.ts` selon la version de Next) redirige `/` selon le cookie de langue puis `Accept-Language`. Tous les textes viennent des dictionnaires, jamais écrits en dur. Le sélecteur EN / FR garde la même page, contrairement à la maquette où la langue se réinitialise.
+- **Bilingue par l'URL** : routes `src/app/[lang]/…` (`en`, `fr`), avec le layout racine dans `[lang]` et `generateStaticParams` + `dynamicParams = false`. La page `/` est une petite page à part (groupe de routes) qui envoie vers `/fr/` ou `/en/` selon la langue mémorisée ou celle du navigateur (script côté client), avec des liens visibles pour qui n'a pas JavaScript. Tous les textes viennent des dictionnaires, jamais écrits en dur. Le sélecteur EN / FR garde la même page, contrairement à la maquette où la langue se réinitialise.
+- **Assets** : logo `public/brand/logo-haeven.png` (blanc, à utiliser en masque CSS), terrasse `public/images/terrasse-3d.jpg`.
 - **Charte en tokens** dans `src/app/globals.css` (bleu poudré `#7CA2B5`, bleu-gris profond `#3A5665`, ivoire `#F5F3EF`, anthracite `#1D1F1E`…, voir `HAEVEN-site.md` §1). Pas de couleur en dur dans les composants. Polices Cormorant Garamond (titres) et DM Sans (texte) via `next/font`.
 - **Server Components par défaut**. Les animations vivent dans de petits composants client.
 - **Contenus** (projets, univers, services à venir) en données typées côté serveur, bilingues.
-- **Formulaire « Start a project »** : Server Action validée par zod, avec anti-spam. Service d'envoi et adresse de destination pas encore choisis.
+- **Formulaire « Start a project »** : validé par zod dans le navigateur, puis envoyé à un service externe avec un anti-spam (champ piège, et la protection du service). Service et adresse de destination pas encore choisis.
 - **Boutique** : elle deviendra un **vrai e-commerce**. Plateforme, paiement, base de données et comptes clients seront définis le moment venu. D'ici là, aucune base ni authentification. La structure doit permettre d'ajouter la boutique sans refaire le reste du site, de la même façon qu'un nouveau service s'ajoute comme une page sous Services.
 
 ## Direction : animé et interactif, pas futuriste

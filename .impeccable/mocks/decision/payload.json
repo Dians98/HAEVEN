@@ -1,0 +1,131 @@
+{
+  "title": "Choisir la composition de la page d'accueil HAEVEN",
+  "question": "Trois façons d'organiser l'accueil, toutes dans le style de tes maquettes (couleurs, polices, vrais textes, petits titres embellis). Ouvre le fichier .html à côté de chaque capture pour voir les animations et les survols en vrai, sur ordinateur et sur mobile. Garde celle qui te parle, ou demande un mélange avec « steer ».",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Les trois portes",
+      "kicker": "THE ROLL",
+      "lineage": "Les arches d'une maison méditerranéenne, qui répondent aux deux courbes du logo",
+      "thesis": "Services, Boutique et Univers deviennent trois grandes portes en arche : on choisit par où entrer chez HAEVEN.",
+      "palette": ["#F5F3EF", "#7CA2B5", "#3A5665", "#B3CBD8", "#1D1F1E"],
+      "materials": ["arches pleine hauteur", "rendu 3D de la terrasse", "filets fins ivoire", "Cormorant italique"],
+      "viewport": "La phrase « designers at heart » en très grand, puis le bandeau scintillant « Welcome to HAEVEN » et le bouton Start a project.",
+      "risk": "Les arches demandent de belles images verticales : tant que Boutique et Univers n'ont que des aplats, deux portes sur trois restent muettes.",
+      "raised": [
+        { "from": "challenger-tensegrity", "raise": "Les portes se répondent : quand on survole l'une, elle s'élargit et les deux autres lui cèdent la place." },
+        { "from": "challenger-ink", "raise": "Un fin cadre ivoire se dessine dans l'arche survolée, comme le cadre du bandeau." }
+      ],
+      "comp": ".impeccable/mocks/decision/assigned.png"
+    },
+    {
+      "id": "structure-welcome",
+      "label": "Bienvenue d'abord",
+      "lineage": "L'entrée d'un hôtel de charme : on est accueilli avant qu'on nous explique quoi que ce soit",
+      "thesis": "Le bandeau scintillant occupe tout le premier écran ; la phrase « designers at heart » apparaît ensuite, mot à mot.",
+      "palette": ["#3A5665", "#B3CBD8", "#F5F3EF", "#7CA2B5", "#4A6677"],
+      "materials": ["plein écran bleu-gris", "étoiles scintillantes", "panneaux qui s'ouvrent", "rangée de projets à faire défiler"],
+      "viewport": "Fond bleu-gris plein écran encadré d'un filet, « Welcome to HAEVEN » géant avec le reflet, et les deux boutons dessous.",
+      "risk": "Le premier écran ne dit pas encore ce que fait le studio : il faut descendre pour comprendre « design d'intérieur ».",
+      "comp": ".impeccable/mocks/decision/structure-welcome.png"
+    },
+    {
+      "id": "structure-board",
+      "label": "Planche d'ambiance",
+      "lineage": "Le tableau de matières d'un décorateur : rendu, échantillons, nuancier épinglés côte à côte",
+      "thesis": "L'accueil se présente comme une planche de projet : on voit tout de suite le métier et le goût du studio.",
+      "palette": ["#F5F3EF", "#7CA2B5", "#3A5665", "#B3CBD8", "#FFFFFF"],
+      "materials": ["rendu 3D épinglé", "arche en aplat", "nuanciers de couleur", "sommaire en grandes lignes"],
+      "viewport": "Texte à gauche, et à droite le rendu de la terrasse, une arche et trois nuanciers qui glissent légèrement au défilement.",
+      "risk": "Plus chargé que les deux autres ; les nuanciers doivent rester discrets pour ne pas faire « catalogue de peinture ».",
+      "comp": ".impeccable/mocks/decision/structure-board.png"
+    },
+    {
+      "id": "challenger-tensegrity",
+      "label": "Colonne de tenségrité",
+      "verdict": "declined",
+      "lineage": "Sculpture cinétique de tiges et de câbles",
+      "thesis": "Une colonne qui respire sous la tension.",
+      "palette": ["#1A1A1A", "#D8D6D0", "#C0392B"],
+      "materials": ["tiges carbone", "câble rouge"],
+      "viewport": "Une colonne de tiges flottantes et des étiquettes techniques.",
+      "risk": "Technique et industriel, à l'opposé de la douceur HAEVEN.",
+      "case": "Perd sur les deux axes : ni clients d'intérieur ni public de l'Univers ne s'y reconnaissent.",
+      "kept": "Les éléments se répondent : une porte qui s'ouvre fait reculer les autres.",
+      "hero": "https://impeccable.style/worlds/cards/kinetic-sculpture-automata-tensegrity-breathing-column-hero.webp"
+    },
+    {
+      "id": "challenger-ink",
+      "label": "Bassin d'encre suminagashi",
+      "verdict": "declined",
+      "lineage": "Marbrure d'encre sur l'eau",
+      "thesis": "La page comme une surface liquide qui suit le doigt.",
+      "palette": ["#F4F3EF", "#1F2A44", "#8A8F98"],
+      "materials": ["encre indigo", "eau", "papier"],
+      "viewport": "Un bassin d'encre plein écran qui réagit au pointeur.",
+      "risk": "Simulation WebGL : exactement le côté futuriste que Diano refuse.",
+      "case": "Perd sur les deux axes, et contredit la consigne « pas futuriste ».",
+      "kept": "Le mouvement suit le geste, lentement : cadre qui se dessine au survol.",
+      "hero": "https://impeccable.style/worlds/cards/medium-native-fluid-ink-basin-hero.webp"
+    },
+    {
+      "id": "challenger-bazaar",
+      "label": "Bazar des ombres",
+      "verdict": "declined",
+      "lineage": "Marché onirique au clair de lune",
+      "thesis": "Des étals où l'on échange des ombres.",
+      "palette": ["#141B2D", "#C99A3B", "#F2F0E6"],
+      "materials": ["toile safran", "ombres"],
+      "viewport": "Une ruelle nocturne d'étals.",
+      "risk": "Sombre et surréaliste, loin de la clarté d'un studio d'intérieur.",
+      "case": "Perd sur les deux axes.",
+      "kept": "Chaque élément garde une petite étiquette d'origine, comme « Interior design · [LOCATION] ».",
+      "hero": "https://impeccable.style/worlds/cards/dream-surreal-impossible-worlds-moon-shadow-bazaar-hero.webp"
+    },
+    {
+      "id": "challenger-vu",
+      "label": "Vumètres de studio",
+      "verdict": "declined",
+      "lineage": "Rangée d'aiguilles sur une console d'enregistrement",
+      "thesis": "Des cadrans identiques qui penchent ensemble.",
+      "palette": ["#F3EEDF", "#111111", "#B8312F"],
+      "materials": ["cadrans ivoire", "noyer", "acier"],
+      "viewport": "Une rangée de vumètres derrière une vitre.",
+      "risk": "Aucune donnée à mesurer sur un site de studio.",
+      "case": "Perd sur les deux axes.",
+      "kept": "Une rangée régulière qui se lit d'un seul regard : la grille des projets.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-vu-meter-bridge-hero.webp"
+    },
+    {
+      "id": "challenger-raygun",
+      "label": "Magazine Ray Gun",
+      "verdict": "declined",
+      "lineage": "Mise en page déconstruite des années 90",
+      "thesis": "Des colonnes qui se percutent.",
+      "palette": ["#EDE8DC", "#111111", "#E8432E"],
+      "materials": ["papier non couché", "typo surimprimée"],
+      "viewport": "Titres qui se chevauchent au travers d'une photo.",
+      "risk": "Bruyant, illisible par choix : l'inverse de l'épure demandée.",
+      "case": "Perd sur les deux axes.",
+      "kept": "Oser un titre très grand qui tient seul la page.",
+      "hero": "https://impeccable.style/worlds/cards/design-canon-raygun-layout-desk-hero.webp"
+    },
+    {
+      "id": "challenger-rebel",
+      "label": "Menu collage rebelle",
+      "verdict": "declined",
+      "lineage": "Menus de jeu vidéo en papier déchiré",
+      "thesis": "Chaque choix est un éclat noir incliné sur fond rouge.",
+      "palette": ["#D7262B", "#111111", "#FFFFFF"],
+      "materials": ["papier déchiré", "trame", "étoiles d'impact"],
+      "viewport": "Un fond écarlate et des options en éclats.",
+      "risk": "Agressif, sans rapport avec la douceur de la marque.",
+      "case": "Perd sur les deux axes.",
+      "kept": "Le choix survolé prend clairement le dessus sur les autres.",
+      "hero": "https://impeccable.style/worlds/cards/pop-culture-shelf-rebel-menu-interface-hero.webp"
+    }
+  ],
+  "reroll": true,
+  "buildPath": { "value": "code", "toggle": false },
+  "steer": true
+}

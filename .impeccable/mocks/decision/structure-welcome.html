@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAEVEN — Welcome first</title>
+<link rel="stylesheet" href="base.css">
+<style>
+.welcome { position: relative; background: var(--bleu-gris); color: var(--ivoire); min-height: max(640px, 100svh); padding: 96px clamp(12px, 2vw, 28px) clamp(12px, 2vw, 28px); display: flex; }
+.welcome .frame { position: relative; overflow: hidden; flex: 1; border: 1px solid rgba(245,243,239,.28); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; text-align: center; padding: 48px 20px; }
+.welcome .big { position: relative; font-family: var(--serif); font-size: clamp(58px, 11.5vw, 176px); line-height: .95; letter-spacing: -0.025em; }
+.welcome .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 16px 32px; position: relative; }
+.welcome .eyebrow { position: relative; }
+.scroll-cue { position: absolute; bottom: 28px; left: 50%; width: 1px; height: 56px; background: rgba(245,243,239,.25); overflow: hidden; }
+.scroll-cue::after { content: ""; position: absolute; left: 0; top: -40%; width: 1px; height: 40%; background: var(--ivoire); animation: cue 2.4s var(--ease) infinite; }
+@keyframes cue { to { top: 100%; } }
+
+.statement { padding: clamp(88px, 12vw, 180px) 0; }
+.statement .grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 48px clamp(32px, 6vw, 96px); align-items: end; }
+.statement h1 { font-size: clamp(46px, 6.6vw, 104px); line-height: 1.02; letter-spacing: -0.02em; }
+.statement h1 .w { display: inline-block; }
+.statement .side { display: flex; flex-direction: column; gap: 24px; padding-bottom: 12px; }
+
+.ways { padding: 0 0 clamp(88px, 12vw, 160px); }
+.ways .head { display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+.panels { display: flex; gap: 12px; height: clamp(460px, 44vw, 600px); }
+.panel { position: relative; flex: 1 1 0; min-width: 0; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding: clamp(20px, 2.4vw, 36px); transition: flex-grow 1s var(--ease); }
+.panel > .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; transition: transform 1.6s var(--ease); }
+.panel.img::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(29,31,30,.62), rgba(29,31,30,0) 58%); }
+.panel .c { position: relative; z-index: 2; display: flex; flex-direction: column; gap: 10px; }
+.panel h3 { font-size: clamp(32px, 3vw, 44px); font-weight: 500; line-height: 1.05; }
+.panel .more { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows .9s var(--ease), opacity .6s var(--ease); }
+.panel .more > div { overflow: hidden; display: flex; flex-direction: column; gap: 8px; max-width: 30em; }
+.panel.light { color: var(--anthracite); } .panel.dark, .panel.img { color: var(--ivoire); }
+.panel.dark .num, .panel.img .num { color: var(--bleu-1); }
+.panel.light .num { color: var(--bleu-gris); }
+.panels:not(:hover) .panel:first-child, .panel:hover { flex-grow: 2.2; }
+.panels:not(:hover) .panel:first-child .more, .panel:hover .more { grid-template-rows: 1fr; opacity: 1; }
+.panel:hover > .bg { transform: scale(1.05); }
+.panel .txtlink { align-self: flex-start; background-image: linear-gradient(currentColor, currentColor), linear-gradient(currentColor, currentColor); }
+
+.work { padding: clamp(80px, 10vw, 140px) 0; border-top: 1px solid var(--filet-2); }
+.work .head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: 40px; }
+.work .head > div { display: flex; flex-direction: column; gap: 14px; }
+.rail { --edge: max(var(--gutter), calc((100vw - 1280px) / 2 + var(--gutter))); display: flex; gap: clamp(16px, 2vw, 28px); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-left: var(--edge); padding: 0 var(--gutter) 16px var(--edge); scrollbar-width: thin; scrollbar-color: var(--poudre) transparent; }
+.rail a { flex: 0 0 clamp(250px, 27vw, 380px); scroll-snap-align: start; display: flex; flex-direction: column; gap: 14px; }
+.rail .frame { aspect-ratio: 4 / 5; overflow: hidden; }
+.rail .frame div { width: 100%; height: 100%; transition: transform 1.2s var(--ease); }
+.rail a:hover .frame div { transform: scale(1.05); }
+.rail .name { font-family: var(--serif); font-size: 24px; font-weight: 500; line-height: 1.2; }
+
+@media (max-width: 860px) {
+  .statement .grid { grid-template-columns: 1fr; }
+  .panels { flex-direction: column; height: auto; }
+  .panel { min-height: 320px; }
+  .panel.img::before { background: linear-gradient(to top, rgba(29,31,30,.82), rgba(29,31,30,.2) 75%); }
+  .panel .more, .panels:not(:hover) .panel .more { grid-template-rows: 1fr; opacity: 1; }
+}
+</style>
+</head>
+<body>
+<header class="site-header is-dark">
+  <div class="wrap bar">
+    <a class="brand" href="#" aria-label="HAEVEN, home"><span class="logo" aria-hidden="true"></span><span>HAEVEN</span></a>
+    <div class="nav-right">
+      <nav class="nav" aria-label="Main">
+        <a href="#">Services</a><a href="#">Shop</a><a href="#">Portfolio</a><a href="#">Universe</a><a href="#">About</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="btn btn-sm" href="#contact">Start a project</a>
+      <div class="lang" role="group" aria-label="Language"><button type="button" aria-pressed="true">EN</button><button type="button" aria-pressed="false">FR</button></div>
+      <button class="menu-btn" type="button" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="welcome on-dark">
+    <div class="frame">
+      <span class="spark sp1" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp2" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp3" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp4" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp5" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp6" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp7" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <span class="spark sp8" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 0L14.2 9.8L24 12L14.2 14.2L12 24L9.8 14.2L0 12L9.8 9.8Z" fill="currentColor"/></svg></span>
+      <p class="eyebrow rv">All about art, design and creativity.</p>
+      <p class="big rv d1">Welcome to <em class="shimmer">HAEVEN</em></p>
+      <div class="actions rv d2">
+        <a class="btn" href="#contact">Start a project</a>
+        <a class="txtlink" href="#about">Explore our world</a>
+      </div>
+      <span class="scroll-cue" aria-hidden="true"></span>
+    </div>
+  </section>
+
+  <section class="statement" id="about">
+    <div class="wrap grid">
+      <h1>
+        <span class="w rv">In</span> <span class="w rv d1">Haeven,</span> <span class="w rv d2">we</span> <span class="w rv d3">are</span>
+        <em><span class="w rv d3">designers</span> <span class="w rv d4">at</span> <span class="w rv d4">heart.</span></em>
+      </h1>
+      <div class="side">
+        <p class="lead rv d2">We feel most alive when we design, transform and bring spaces and ideas to life.</p>
+        <a class="txtlink rv d3" href="#contact">Start a project <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="ways">
+    <div class="wrap">
+      <div class="head">
+        <p class="eyebrow rv">Our world</p>
+        <h2 class="h-section rv d1">Three ways to come in.</h2>
+      </div>
+      <div class="panels rv d2">
+        <a class="panel img" href="#">
+          <img class="bg" src="assets/terrace.jpg" alt="3D visualisation of a covered terrace with teak sofas, a palm tree and a pool">
+          <div class="c"><span class="num">01</span><h3>Services</h3>
+            <div class="more"><div><p>Creative services, in person or online. Starting with interior design, with more on the way.</p><span class="txtlink">Discover services <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></div></div>
+          </div>
+        </a>
+        <a class="panel light" href="#" style="background: var(--bleu-1)">
+          <div class="c"><span class="num">02</span><h3>Shop</h3>
+            <div class="more"><div><p>Our creations and pieces, made with love and ready to live in your space.</p><span class="txtlink">Visit the shop <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></div></div>
+          </div>
+        </a>
+        <a class="panel dark" href="#" style="background: var(--bleu-gris-moyen)">
+          <div class="c"><span class="num">03</span><h3>Universe</h3>
+            <div class="more"><div><p>Photography, songs and writing. The personal side of Haeven.</p><span class="txtlink">Step inside <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span></div></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="work">
+    <div class="wrap head">
+      <div><p class="eyebrow rv">Selected work</p><h2 class="h-section rv d1">Interior design</h2></div>
+      <a class="txtlink rv d2" href="#">View the full portfolio <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+    </div>
+    <div class="rail" tabindex="0" aria-label="Selected projects">
+      <a class="rv" href="#"><div class="frame"><div role="img" aria-label="Placeholder image" style="background: var(--bleu-2)"></div></div><div><div class="name">[PROJECT NAME]</div><div class="meta">Interior design · [LOCATION]</div></div></a>
+      <a class="rv d1" href="#"><div class="frame"><div role="img" aria-label="Placeholder image" style="background: var(--bleu-1)"></div></div><div><div class="name">[PROJECT NAME]</div><div class="meta">Interior design · [LOCATION]</div></div></a>
+      <a class="rv d2" href="#"><div class="frame"><div role="img" aria-label="Placeholder image" style="background: var(--bleu-3)"></div></div><div><div class="name">[PROJECT NAME]</div><div class="meta">Interior design · [LOCATION]</div></div></a>
+      <a class="rv d3" href="#"><div class="frame"><div role="img" aria-label="Placeholder image" style="background: var(--bleu-4)"></div></div><div><div class="name">[PROJECT NAME]</div><div class="meta">Interior design · [LOCATION]</div></div></a>
+    </div>
+  </section>
+
+  <section class="universe on-dark">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow rv">Universe</p><h2 class="h-section rv d1" style="margin-top:14px">Art, songs and <em>words.</em></h2><p class="rv d2">Photography, songs and writing from the personal side of Haeven.</p></div>
+        <a class="txtlink rv d2" href="#">Step inside <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="uni-grid">
+        <a class="rv" href="#"><div class="frame"><div role="img" aria-label="Placeholder image"></div></div><span class="t">[PHOTO SERIES]</span></a>
+        <a class="rv d1" href="#"><div class="frame"><div role="img" aria-label="Placeholder image"></div></div><span class="t">[SONG TITLE]</span></a>
+        <a class="rv d2" href="#"><div class="frame"><div role="img" aria-label="Placeholder image"></div></div><span class="t">[TEXT TITLE]</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="inner">
+      <span class="logo rv" aria-hidden="true"></span>
+      <h2 class="rv d1">Have an idea to transform?</h2>
+      <p class="rv d2">Tell us about your space or your project, and let's create it together.</p>
+      <a class="btn-dark rv d3" href="#">Start a project</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap bar">
+    <a class="brand" href="#" aria-label="HAEVEN, home"><span class="logo" aria-hidden="true"></span><span>HAEVEN</span></a>
+    <nav aria-label="Footer"><a href="#">Services</a><a href="#">Shop</a><a href="#">Universe</a><a href="#contact">Contact</a></nav>
+    <small>© 2026 HAEVEN</small>
+  </div>
+</footer>
+<script src="base.js"></script>
+</body>
+</html>
